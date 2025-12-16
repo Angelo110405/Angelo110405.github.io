@@ -295,95 +295,100 @@ footer {
 
 
 
+
 /* =====================================================
-   FIX DEFINITIVO MOBILE (Redmi 10C, Android Chrome)
+   TELEFONO IN ORIZZONTALE = MODALITÀ "DESKTOP COMPRESSA"
    ===================================================== */
-@media (max-width: 768px) {
+@media (max-width: 900px) and (orientation: landscape) {
 
   html, body{
-    height: auto;
-    overflow-y: auto;
+    height: 100%;
+    overflow: hidden;
   }
 
   header{
-    padding: 16px 8px;
+    padding: 6px 0;
   }
 
   h1{
-    font-size: 1.15rem;
+    font-size: 1rem;
+    margin: 2px 0;
   }
 
   #logo{
-    width: 90px;
+    width: 70px;
   }
 
-  /* CONTENITORE */
+  /* CONTENITORE PRINCIPALE IDENTICO AL DESKTOP */
   .main-container{
-    flex-direction: column;
-    height: auto;
-    min-height: unset;
+    flex-direction: row;
+    height: calc(100vh - 80px);
+  }
+
+  /* TABELLONE: TUTTI I NUMERI DEVONO ENTRARE */
+  #tabellone{
+    flex: 2.2;
+    gap: 4px;
+    padding: 4px;
+    overflow: hidden; /* ← NIENTE SCROLL */
+  }
+
+  .sezione{
+    padding: 4px;
+  }
+
+  .riga{
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .numero{
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    border-width: 3px;
   }
 
   /* COLONNA DESTRA */
   .right-column{
-    width: 100%;
-    flex: none;
-    padding: 8px;
-    justify-content: flex-start; /* ← CHIAVE */
+    flex: 0.8;
+    padding: 6px;
+    justify-content: space-between;
   }
 
-  /* NUMERO GRANDE */
+  /* NUMERO GRANDE SEMPRE VISIBILE */
   #big-number{
-    font-size: 120px;        /* ↓ RIDOTTO */
-    height: auto;
-    max-height: 30vh;        /* ← CHIAVE */
-    margin-bottom: 6px;
-    flex: none;              /* ← CHIAVE */
+    font-size: 160px;
+    max-height: 55vh;
+    margin-bottom: 4px;
   }
 
-  /* CONTROLLI SEMPRE VISIBILI */
+  /* CONTROLLI */
   #controls{
+    gap: 6px;
     margin-top: 0;
-    padding-bottom: 10px;
   }
 
   #numberInput,
   #btn{
-    max-width: 200px;
-    font-size: 1.05rem;
+    max-width: 140px;
+    font-size: 0.9rem;
+    padding: 6px;
   }
 
-  /* TABELLONE */
-  #tabellone{
-    max-height: 45vh;        /* ← SCROLL VERO */
-    overflow-y: auto;
-    padding-bottom: 20px;
-  }
-
-  .numero{
-    width: 58px;
-    height: 58px;
-    font-size: 26px;
-  }
-
-  /* GHIRLANDE RIDOTTE */
-  .border-garland.top{ height: 45px; }
-  .border-garland.bottom{ height: 45px; }
+  /* GHIRLANDE PIÙ SOTTILI */
+  .border-garland.top{ height: 40px; }
+  .border-garland.bottom{ height: 40px; }
   .border-garland2.left,
-  .border-garland2.right{ width: 60px; }
+  .border-garland2.right{ width: 45px; }
 
   /* LED PIÙ PICCOLI */
   .led{
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
   }
 
-  /* FOOTER VISIBILE */
   footer{
-    position: relative;
-    width: 100%;
-    font-size: 0.7rem;
-    text-align: center;
-    padding: 6px 4px;
+    display: none; /* su landscape telefono non serve */
   }
 }
