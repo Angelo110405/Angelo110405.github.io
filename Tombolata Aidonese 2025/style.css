@@ -1,101 +1,88 @@
 @media (max-width: 768px) {
     :root{
-    --bg1:#0003b6;
-    --bg2:#0003b6;
-    --gold:#ffd54a;
+    --bg1: #0003b6;/*0a3b1e;*/
+    --bg2: #0003b6;/*#0f5c34; */
+    --gold:#ffd54a; 
     --accent:#ff3b3b;
   }
   
-  /* ================= BASE ================= */
-  html,body{
-    height:100%;
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(180deg,var(--bg1),var(--bg2));
-    color:#fff;
-  }
+  /*.christmas-garland {
+   background-image: url('ghirlanda2.png'); 
   
+   background-repeat: repeat-x; 
+  
+   background-position: top center; 
+  
+   background-size: auto 120px; 
+  
+   padding-top: 50px; 
+   position: relative; 
+   z-index: 1; 
+  }*/
+  
+  /* base */
+  html,body{
+    height:100%; margin:0; font-family:Arial, Helvetica, sans-serif; 
+    background: linear-gradient(180deg,var(--bg1),var(--bg2)); 
+    color:#fff; 
+    /*overflow:hidden;*/
+  }
   body{
     display:flex;
     flex-direction:column;
-    overflow:hidden;
   }
   
-  /* ================= HEADER ================= */
+  /* header: logo + titolo centrati */
   header{
     text-align:center;
     padding:50px 0;
-    z-index:10;
   }
-  
-  h1{
-    margin:6px 0 0;
-    font-size:1.8rem;
-    color:#fffbe6;
-    text-shadow:2px 2px 6px #000;
-    line-height:1.1;
-  }
-  
   #logo{
-    width:140px;
-    max-width:35vw;
+    width:140px; max-width:35vw; height:auto;
+  }
+  h1{
+    margin:6px 0 0; font-size:1.8rem; color:#fffbe6; text-shadow:2px 2px 6px #000; line-height:1.1;
   }
   
-  /* ================= CONTENITORE ================= */
+  /* contenitore principale */
   .main-container{
     display:flex;
     flex:1;
     width:100%;
-    height:calc(100vh - 120px);
+    height:calc(100% - 100px);
   }
   
-  /* ================= TABELLONE ================= */
+  /* tabellone a sinistra */
   #tabellone{
     flex:2;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px;
+    display:grid; grid-template-columns:1fr 1fr; gap:6px;
     padding:6px;
+    overflow-y:auto;
   }
-  
   .sezione{
-    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.04));
-    padding:6px;
-    border-radius:10px;
-    border:1px solid rgba(255,215,0,.08);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.04));
+    padding:6px; border-radius:10px; border:1px solid rgba(255,215,0,0.08);
   }
-  
-  .riga{
-    display:flex;
-    justify-content:center;
-    gap:6px;
-    margin-bottom:6px;
-  }
-  
+  .riga{ display:flex; justify-content:center; gap:6px; margin-bottom:6px; }
   .numero{
-    width:100px;
-    height:100px;
-    font-size:75px;
-    border-radius:50%;
-    background:radial-gradient(circle,#ffd700 0%);
+    width:100px; height:100px; font-size:75px; border-radius:50%;
+    background: radial-gradient(circle, #ffd700 0%);
     border:4px solid #dd0000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#000;
-    text-shadow:2px 2px 4px rgba(0,0,0,.7);
+    display:flex; align-items:center; justify-content:center;
+    color:#000/*fff*/; text-shadow:2px 2px 4px rgba(0,0,0,0.7);
+    position:relative; box-sizing:border-box;
   }
-  
   .numero.marked{
-    background:#222;
-    border-color:#b71c1c;
-    color:#fff;
+    background:#222; border-color:#b71c1c; color:#fff;
+  }
+  .numero.marked::after{
+    content:""; font-size:36px; color:var(--accent); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   }
   
-  /* ================= COLONNA DESTRA ================= */
+  /* colonna destra */
   .right-column{
-    flex:.85;
-    min-width:200px;
+    flex: 0.85;          /* prima era 1 → più stretta */
+    min-width: 200px;    /* sicurezza */
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -103,11 +90,11 @@
     padding:12px;
   }
   
-  /* ================= NUMERO GRANDE ================= */
+  /* numero grande sempre visibile */
   #big-number{
     width:100%;
     flex:1;
-    border:2px dashed rgba(255,255,255,.3);
+    border:2px dashed rgba(255,255,255,0.3);
     border-radius:12px;
     display:flex;
     align-items:center;
@@ -116,206 +103,270 @@
     font-weight:950;
     color:var(--gold);
     text-shadow:5px 5px 18px #000;
-    background:rgba(255,255,255,.02);
-    max-height:72vh;
+    background:rgba(255,255,255,0.02);
+    margin-bottom:12px;
+    max-height: 72vh;
   }
   
-  /* ================= CONTROLLI ================= */
+  /* input + bottone in basso 
   #controls{
+    width:60%;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:8px;
     align-items:center;
-  }
+  }*/
   
-  #numberInput,
-  #btn{
+  #controls{
     width:100%;
-    max-width:180px;
-    padding:10px;
-    font-size:1.1rem;
-    border-radius:10px;
-    border:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    align-items:center;
+  
+    margin-top: -10px;
   }
   
+  #numberInput{
+    width:100%; max-width:180px; padding:10px; font-size:1.2rem; border-radius:10px; border:none; text-align:center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
   #btn{
-    background:var(--gold);
-    font-weight:700;
-    cursor:pointer;
+    padding:10px 18px; border-radius:10px; border:none; background:var(--gold); color:#111; font-weight:700;
+    cursor:pointer; font-size:1.05rem; box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    width:100%; max-width:180px;
   }
   
-  /* ================= GHIRLANDE ================= */
-  .border-garland,
-  .border-garland2{
-    position:fixed;
-    pointer-events:none;
-    z-index:999;
-    background-size:contain;
+  /* neve */
+  .snowflake{
+    position:fixed; top:-10px; color:#fff; font-size:14px; pointer-events:none; z-index:1000; opacity:0.9; animation: fall linear infinite;
+  }
+  @keyframes fall { from{ transform:translateY(0); opacity:1 } to{ transform:translateY(110vh); opacity:0 } }
+  
+  /* ===== GHIRLANDA LATERALE ===== 
+  
+  header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    padding-top: 0;
   }
   
-  .border-garland{
-    background-image:url("ghirlanda.jpg");
+  .header-center {
+    z-index: 5; 
+    padding: 10px 0;
+    text-align: center;
   }
   
-  .border-garland2{
-    background-image:url("ghirlanda1.jpg");
+  .garland {
+    position: absolute;
+    top: 0;
+    height: 150px;
+    background-image: url('ghirlanda.jpg'); 
+    background-repeat: repeat-x;
+    background-size: contain;
+    pointer-events: none;
   }
   
-  .border-garland.top{
-    top:0;
-    left:0;
-    width:100vw;
-    height:80px;
+  .garland-left {
+    left: 0;
+    width: 50vw;      
+    transform: translateX(-10px);
   }
   
-  .border-garland.bottom{
-    bottom:0;
-    left:0;
-    width:100vw;
-    height:70px;
-    transform:scaleY(-1);
+  .garland-right {
+    right: 0;
+    width: 50vw;     
+    transform: translateX(10px);
+  }*/
+  
+  /* ============================================
+     GHIRLANDA TUTTO ATTORNO ALLO SCHERMO
+     ============================================ */
+  
+  .border-garland {
+    position: fixed;
+    background-image: url("ghirlanda.jpg"); /* rinomina la tua immagine */
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 999; /* sopra tutto ma non blocca clic */
+    pointer-events: none; /* non interferisce con i pulsanti */
   }
   
-  .border-garland2.left{
-    left:0;
-    top:0;
-    width:120px;
-    height:100vh;
-    transform:scaleX(-1);
+  .border-garland2 {
+    position: fixed;
+    background-image: url("ghirlanda1.jpg"); /* rinomina la tua immagine */
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 999; /* sopra tutto ma non blocca clic */
+    pointer-events: none; /* non interferisce con i pulsanti */
   }
   
-  .border-garland2.right{
-    right:0;
-    top:0;
-    width:120px;
-    height:100vh;
+  /* Top */
+  .border-garland.top {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;   /* puoi aumentare o ridurre */
+    background-repeat: repeat-x;
   }
   
-  /* ================= LED ================= */
-  .led{
-    position:fixed;
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    opacity:.15;
-    z-index:1200;
+  /* Bottom */
+  .border-garland.bottom {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;;
+    background-repeat: repeat-x;
+    transform: scaleY(-1); /* capovolge la ghirlanda per sembrare naturale */
   }
   
-  .led.on{
-    opacity:1;
-    transform:scale(1.3);
+  /* Left */
+  .border-garland2.left {
+    top: 0;
+    left: 0;
+    width: 120px;;
+    height: 100vh;
+    background-repeat: repeat-y;
+    transform: scaleX(-1); /* specchio per orientamento naturale */
   }
   
-  /* ================= FOOTER ================= */
-  footer{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:40%;
-    z-index:1500;
-    padding:6px;
-    font-size:.7rem;
+  /* Right */
+  .border-garland2.right {
+    top: 0;
+    right: 0;
+    width: 120px;;
+    height: 100vh;
+    background-repeat: repeat-y;
+  }
+  
+  
+  /* =====================================================
+     LED NATALIZI SEQUENZIALI (sopra alle ghirlande)
+     ===================================================== */
+  
+  .led {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    z-index: 1200; /* Sopra tutto, anche ghirlande */
+    pointer-events: none;
+    opacity: 0.15; /* luce spenta */
+    transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  
+  /* Colori */
+  .led.red    { background:#ff3b3b; box-shadow:0 0 10px #ff3b3b; }
+  .led.green  { background:#00ff73; box-shadow:0 0 10px #00ff73; }
+  .led.blue   { background:#4db7ff; box-shadow:0 0 10px #4db7ff; }
+  .led.yellow { background:#ffe600; box-shadow:0 0 10px #ffe600; }
+  
+  /* LED ACCESO */
+  .led.on {
+    opacity: 1;
+    transform: scale(1.28);
+    box-shadow: 0 0 18px currentColor;
+  }
+  
+  
+  footer {
+    position: absolute; /* Posiziona il footer rispetto al <body> */
+    bottom: 0;          /* In basso */
+    left: 0;            /* A sinistra */
+    width: 40%;        /* Occupa tutta la larghezza */
+    color: white;
+    z-index: 1500;   /* Assicura che sia sopra altri elementi (se necessario) */
   }
 }
 
 @media (min-width: 1025px) {
     :root{
-    --bg1:#0003b6;
-    --bg2:#0003b6;
-    --gold:#ffd54a;
+    --bg1: #0003b6;/*0a3b1e;*/
+    --bg2: #0003b6;/*#0f5c34; */
+    --gold:#ffd54a; 
     --accent:#ff3b3b;
   }
   
-  /* ================= BASE ================= */
-  html,body{
-    height:100%;
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(180deg,var(--bg1),var(--bg2));
-    color:#fff;
-  }
+  /*.christmas-garland {
+   background-image: url('ghirlanda2.png'); 
   
+   background-repeat: repeat-x; 
+  
+   background-position: top center; 
+  
+   background-size: auto 120px; 
+  
+   padding-top: 50px; 
+   position: relative; 
+   z-index: 1; 
+  }*/
+  
+  /* base */
+  html,body{
+    height:100%; margin:0; font-family:Arial, Helvetica, sans-serif; 
+    background: linear-gradient(180deg,var(--bg1),var(--bg2)); 
+    color:#fff; 
+    /*overflow:hidden;*/
+  }
   body{
     display:flex;
     flex-direction:column;
-    overflow:hidden;
   }
   
-  /* ================= HEADER ================= */
+  /* header: logo + titolo centrati */
   header{
     text-align:center;
     padding:50px 0;
-    z-index:10;
   }
-  
-  h1{
-    margin:6px 0 0;
-    font-size:1.8rem;
-    color:#fffbe6;
-    text-shadow:2px 2px 6px #000;
-    line-height:1.1;
-  }
-  
   #logo{
-    width:140px;
-    max-width:35vw;
+    width:140px; max-width:35vw; height:auto;
+  }
+  h1{
+    margin:6px 0 0; font-size:1.8rem; color:#fffbe6; text-shadow:2px 2px 6px #000; line-height:1.1;
   }
   
-  /* ================= CONTENITORE ================= */
+  /* contenitore principale */
   .main-container{
     display:flex;
     flex:1;
     width:100%;
-    height:calc(100vh - 120px);
+    height:calc(100% - 100px);
   }
   
-  /* ================= TABELLONE ================= */
+  /* tabellone a sinistra */
   #tabellone{
     flex:2;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px;
+    display:grid; grid-template-columns:1fr 1fr; gap:6px;
     padding:6px;
+    overflow-y:auto;
   }
-  
   .sezione{
-    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.04));
-    padding:6px;
-    border-radius:10px;
-    border:1px solid rgba(255,215,0,.08);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.04));
+    padding:6px; border-radius:10px; border:1px solid rgba(255,215,0,0.08);
   }
-  
-  .riga{
-    display:flex;
-    justify-content:center;
-    gap:6px;
-    margin-bottom:6px;
-  }
-  
+  .riga{ display:flex; justify-content:center; gap:6px; margin-bottom:6px; }
   .numero{
-    width:100px;
-    height:100px;
-    font-size:75px;
-    border-radius:50%;
-    background:radial-gradient(circle,#ffd700 0%);
+    width:100px; height:100px; font-size:75px; border-radius:50%;
+    background: radial-gradient(circle, #ffd700 0%);
     border:4px solid #dd0000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#000;
-    text-shadow:2px 2px 4px rgba(0,0,0,.7);
+    display:flex; align-items:center; justify-content:center;
+    color:#000/*fff*/; text-shadow:2px 2px 4px rgba(0,0,0,0.7);
+    position:relative; box-sizing:border-box;
   }
-  
   .numero.marked{
-    background:#222;
-    border-color:#b71c1c;
-    color:#fff;
+    background:#222; border-color:#b71c1c; color:#fff;
+  }
+  .numero.marked::after{
+    content:""; font-size:36px; color:var(--accent); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   }
   
-  /* ================= COLONNA DESTRA ================= */
+  /* colonna destra */
   .right-column{
-    flex:.85;
-    min-width:200px;
+    flex: 0.85;          /* prima era 1 → più stretta */
+    min-width: 200px;    /* sicurezza */
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -323,11 +374,11 @@
     padding:12px;
   }
   
-  /* ================= NUMERO GRANDE ================= */
+  /* numero grande sempre visibile */
   #big-number{
     width:100%;
     flex:1;
-    border:2px dashed rgba(255,255,255,.3);
+    border:2px dashed rgba(255,255,255,0.3);
     border-radius:12px;
     display:flex;
     align-items:center;
@@ -336,104 +387,181 @@
     font-weight:950;
     color:var(--gold);
     text-shadow:5px 5px 18px #000;
-    background:rgba(255,255,255,.02);
-    max-height:72vh;
+    background:rgba(255,255,255,0.02);
+    margin-bottom:12px;
+    max-height: 72vh;
   }
   
-  /* ================= CONTROLLI ================= */
+  /* input + bottone in basso 
   #controls{
+    width:60%;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:8px;
     align-items:center;
-  }
+  }*/
   
-  #numberInput,
-  #btn{
+  #controls{
     width:100%;
-    max-width:180px;
-    padding:10px;
-    font-size:1.1rem;
-    border-radius:10px;
-    border:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    align-items:center;
+  
+    margin-top: -10px;
   }
   
+  #numberInput{
+    width:100%; max-width:180px; padding:10px; font-size:1.2rem; border-radius:10px; border:none; text-align:center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
   #btn{
-    background:var(--gold);
-    font-weight:700;
-    cursor:pointer;
+    padding:10px 18px; border-radius:10px; border:none; background:var(--gold); color:#111; font-weight:700;
+    cursor:pointer; font-size:1.05rem; box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    width:100%; max-width:180px;
   }
   
-  /* ================= GHIRLANDE ================= */
-  .border-garland,
-  .border-garland2{
-    position:fixed;
-    pointer-events:none;
-    z-index:999;
-    background-size:contain;
+  /* neve */
+  .snowflake{
+    position:fixed; top:-10px; color:#fff; font-size:14px; pointer-events:none; z-index:1000; opacity:0.9; animation: fall linear infinite;
+  }
+  @keyframes fall { from{ transform:translateY(0); opacity:1 } to{ transform:translateY(110vh); opacity:0 } }
+  
+  /* ===== GHIRLANDA LATERALE ===== 
+  
+  header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    padding-top: 0;
   }
   
-  .border-garland{
-    background-image:url("ghirlanda.jpg");
+  .header-center {
+    z-index: 5; 
+    padding: 10px 0;
+    text-align: center;
   }
   
-  .border-garland2{
-    background-image:url("ghirlanda1.jpg");
+  .garland {
+    position: absolute;
+    top: 0;
+    height: 150px;
+    background-image: url('ghirlanda.jpg'); 
+    background-repeat: repeat-x;
+    background-size: contain;
+    pointer-events: none;
   }
   
-  .border-garland.top{
-    top:0;
-    left:0;
-    width:100vw;
-    height:80px;
+  .garland-left {
+    left: 0;
+    width: 50vw;      
+    transform: translateX(-10px);
   }
   
-  .border-garland.bottom{
-    bottom:0;
-    left:0;
-    width:100vw;
-    height:70px;
-    transform:scaleY(-1);
+  .garland-right {
+    right: 0;
+    width: 50vw;     
+    transform: translateX(10px);
+  }*/
+  
+  /* ============================================
+     GHIRLANDA TUTTO ATTORNO ALLO SCHERMO
+     ============================================ */
+  
+  .border-garland {
+    position: fixed;
+    background-image: url("ghirlanda.jpg"); /* rinomina la tua immagine */
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 999; /* sopra tutto ma non blocca clic */
+    pointer-events: none; /* non interferisce con i pulsanti */
   }
   
-  .border-garland2.left{
-    left:0;
-    top:0;
-    width:120px;
-    height:100vh;
-    transform:scaleX(-1);
+  .border-garland2 {
+    position: fixed;
+    background-image: url("ghirlanda1.jpg"); /* rinomina la tua immagine */
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 999; /* sopra tutto ma non blocca clic */
+    pointer-events: none; /* non interferisce con i pulsanti */
   }
   
-  .border-garland2.right{
-    right:0;
-    top:0;
-    width:120px;
-    height:100vh;
+  /* Top */
+  .border-garland.top {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;   /* puoi aumentare o ridurre */
+    background-repeat: repeat-x;
   }
   
-  /* ================= LED ================= */
-  .led{
-    position:fixed;
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    opacity:.15;
-    z-index:1200;
+  /* Bottom */
+  .border-garland.bottom {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;;
+    background-repeat: repeat-x;
+    transform: scaleY(-1); /* capovolge la ghirlanda per sembrare naturale */
   }
   
-  .led.on{
-    opacity:1;
-    transform:scale(1.3);
+  /* Left */
+  .border-garland2.left {
+    top: 0;
+    left: 0;
+    width: 120px;;
+    height: 100vh;
+    background-repeat: repeat-y;
+    transform: scaleX(-1); /* specchio per orientamento naturale */
   }
   
-  /* ================= FOOTER ================= */
-  footer{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:40%;
-    z-index:1500;
-    padding:6px;
-    font-size:.7rem;
+  /* Right */
+  .border-garland2.right {
+    top: 0;
+    right: 0;
+    width: 120px;;
+    height: 100vh;
+    background-repeat: repeat-y;
+  }
+  
+  
+  /* =====================================================
+     LED NATALIZI SEQUENZIALI (sopra alle ghirlande)
+     ===================================================== */
+  
+  .led {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    z-index: 1200; /* Sopra tutto, anche ghirlande */
+    pointer-events: none;
+    opacity: 0.15; /* luce spenta */
+    transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  
+  /* Colori */
+  .led.red    { background:#ff3b3b; box-shadow:0 0 10px #ff3b3b; }
+  .led.green  { background:#00ff73; box-shadow:0 0 10px #00ff73; }
+  .led.blue   { background:#4db7ff; box-shadow:0 0 10px #4db7ff; }
+  .led.yellow { background:#ffe600; box-shadow:0 0 10px #ffe600; }
+  
+  /* LED ACCESO */
+  .led.on {
+    opacity: 1;
+    transform: scale(1.28);
+    box-shadow: 0 0 18px currentColor;
+  }
+  
+  
+  footer {
+    position: absolute; /* Posiziona il footer rispetto al <body> */
+    bottom: 0;          /* In basso */
+    left: 0;            /* A sinistra */
+    width: 40%;        /* Occupa tutta la larghezza */
+    color: white;
+    z-index: 1500;   /* Assicura che sia sopra altri elementi (se necessario) */
   }
 }
