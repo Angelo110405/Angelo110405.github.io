@@ -294,100 +294,96 @@ footer {
 }
 
 
-/* =========================================
-   MODALITÀ MOBILE / TELEFONI
-   ========================================= */
+
+/* =====================================================
+   FIX DEFINITIVO MOBILE (Redmi 10C, Android Chrome)
+   ===================================================== */
 @media (max-width: 768px) {
 
-  body{
+  html, body{
+    height: auto;
     overflow-y: auto;
   }
 
   header{
-    padding: 20px 10px;
+    padding: 16px 8px;
   }
 
   h1{
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   #logo{
-    width: 100px;
+    width: 90px;
   }
 
+  /* CONTENITORE */
   .main-container{
     flex-direction: column;
     height: auto;
-  }
-
-  /* TABELLONE */
-  #tabellone{
-    order: 2;
-    flex: none;
-    max-height: 45vh;
-    overflow-y: auto;
-  }
-
-  .numero{
-    width: 60px;
-    height: 60px;
-    font-size: 28px;
+    min-height: unset;
   }
 
   /* COLONNA DESTRA */
   .right-column{
-    order: 1;
-    flex: none;
     width: 100%;
-    min-width: unset;
+    flex: none;
     padding: 8px;
+    justify-content: flex-start; /* ← CHIAVE */
   }
 
   /* NUMERO GRANDE */
   #big-number{
-    font-size: 140px;
-    max-height: 35vh;
-    margin-bottom: 8px;
+    font-size: 120px;        /* ↓ RIDOTTO */
+    height: auto;
+    max-height: 30vh;        /* ← CHIAVE */
+    margin-bottom: 6px;
+    flex: none;              /* ← CHIAVE */
   }
 
-  /* CONTROLLI */
+  /* CONTROLLI SEMPRE VISIBILI */
   #controls{
     margin-top: 0;
-    gap: 10px;
+    padding-bottom: 10px;
   }
 
   #numberInput,
   #btn{
-    max-width: 220px;
-    font-size: 1.1rem;
+    max-width: 200px;
+    font-size: 1.05rem;
   }
 
-  /* GHIRLANDE più sottili */
-  .border-garland.top{
-    height: 50px;
+  /* TABELLONE */
+  #tabellone{
+    max-height: 45vh;        /* ← SCROLL VERO */
+    overflow-y: auto;
+    padding-bottom: 20px;
   }
 
-  .border-garland.bottom{
-    height: 45px;
+  .numero{
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
   }
 
+  /* GHIRLANDE RIDOTTE */
+  .border-garland.top{ height: 45px; }
+  .border-garland.bottom{ height: 45px; }
   .border-garland2.left,
-  .border-garland2.right{
-    width: 70px;
-  }
+  .border-garland2.right{ width: 60px; }
 
-  /* LED più piccoli */
+  /* LED PIÙ PICCOLI */
   .led{
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
   }
 
-  /* FOOTER */
+  /* FOOTER VISIBILE */
   footer{
     position: relative;
     width: 100%;
+    font-size: 0.7rem;
     text-align: center;
-    font-size: 0.75rem;
-    margin-top: 10px;
+    padding: 6px 4px;
   }
 }
